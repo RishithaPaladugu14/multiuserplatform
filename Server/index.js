@@ -11,6 +11,13 @@ mongoose.connect("mongodb://localhost:27017")
 
 
 app.use(express.json());
+const corsOptions = {
+    origin:["http://localhost:5173","http://localhost:5174"]
+    methods:["POST","GET"],
+    allowedHeaders: ["Content-Type","Authorization"]
+    credentials:true,
+ 
+};
 app.use(cors());
 
 app.get("/", (req,res) => {
